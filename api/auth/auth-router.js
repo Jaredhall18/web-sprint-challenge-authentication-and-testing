@@ -4,7 +4,7 @@ const {
   checkUsernameExists,
   validateCreds,
   checkUserExists,
-} =require('./auth-middleware')
+} = require('./auth-middleware')
 const { tokenBuilder } = require('./auth-helpers')
 const User = require('../model/user-model');
 const { restart } = require('nodemon');
