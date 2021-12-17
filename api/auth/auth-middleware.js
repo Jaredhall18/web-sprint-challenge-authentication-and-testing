@@ -3,7 +3,6 @@ const User = require('../model/user-model')
 const checkUsernameExists = async (req, res, next) => {
     try {
         const user = await User.findBy( req.body.username )
-        console.log(user)
         if(user) {
             next({status:401, message: 'username taken'})
         } else {
@@ -17,7 +16,7 @@ const checkUsernameExists = async (req, res, next) => {
 const validateCreds = (req, res, next) => {
    try {
     const {username, password } = req.body
-    if ( username() === "" || password.trim() === "" || !username || !password) {
+    if ( username.trim() === "" || password.trim() === "" || !username || !password) {
         next({status:401, message: 'username and password required'})
     } else {
         next()
@@ -25,7 +24,6 @@ const validateCreds = (req, res, next) => {
    } catch (error) {
        next(error)
    }
-    next();
 }
 
 module.exports = {
