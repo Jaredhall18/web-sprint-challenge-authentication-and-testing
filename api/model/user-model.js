@@ -7,7 +7,7 @@ async function add(user) {
 }
 
 async function findBy(username) {
-    return await db('users').select('users.username').where('username', username).first()
+    return await db('users').where('username', username).first()
     
 }
 
